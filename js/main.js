@@ -205,14 +205,36 @@ function updateData(data) {
     texts.exit().remove();
 }
 
-/******** stats ********/
+///******** stats ********/
+//
+//stats = new Stats();
+//stats.domElement.style.position = 'absolute';
+//stats.domElement.style.top = '0px';
+//document.getElementById('container').appendChild(stats.domElement);
+//
+//// update stats on every iteration
+//document.addEventListener('clmtrackrIteration', function () {
+//    stats.update();
+//}, false);
 
-stats = new Stats();
-stats.domElement.style.position = 'absolute';
-stats.domElement.style.top = '0px';
-document.getElementById('container').appendChild(stats.domElement);
 
-// update stats on every iteration
-document.addEventListener('clmtrackrIteration', function () {
-    stats.update();
+
+
+window.addEventListener("DOMContentLoaded", function () {
+    // Grab elements, create settings, etc.
+    var canvas = document.getElementById("canvas"),
+        context = canvas.getContext("2d"),
+        video = document.getElementById("videoel");
+
+    // Trigger photo take
+        document.getElementById("snap").addEventListener("click", function () {
+        context.drawImage(video, 0, 0, 600, 450);
+    });
 }, false);
+
+
+
+
+
+
+
