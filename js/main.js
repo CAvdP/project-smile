@@ -126,56 +126,27 @@ var svg = d3.select("#emotion_chart").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom);
 
-svg.selectAll("rect").
-    data(emotionData).
-    enter().
-    append("svg:rect").
-    attr("x", function (datum, index) {
-        return x(index);
-    }).
-    attr("y", function (datum) {
-        return height - y(datum.value);
-    }).
-    attr("height", function (datum) {
-        return y(datum.value);
-    }).
-    attr("width", barWidth).
-    attr("fill", "#2d578b");
+svg.selectAll("rect").data(emotionData).enter().append("svg:rect").attr("x", function (datum, index) {
+    return x(index);
+}).attr("y", function (datum) {
+    return height - y(datum.value);
+}).attr("height", function (datum) {
+    return y(datum.value);
+}).attr("width", barWidth).attr("fill", "#2d578b");
 
-svg.selectAll("text.labels").
-    data(emotionData).
-    enter().
-    append("svg:text").
-    attr("x", function (datum, index) {
-        return x(index) + barWidth;
-    }).
-    attr("y", function (datum) {
-        return height - y(datum.value);
-    }).
-    attr("dx", -barWidth / 2).
-    attr("dy", "1.2em").
-    attr("text-anchor", "middle").
-    text(function (datum) {
-        return datum.value;
-    }).
-    attr("fill", "white").
-    attr("class", "labels");
+svg.selectAll("text.labels").data(emotionData).enter().append("svg:text").attr("x", function (datum, index) {
+    return x(index) + barWidth;
+}).attr("y", function (datum) {
+    return height - y(datum.value);
+}).attr("dx", -barWidth / 2).attr("dy", "1.2em").attr("text-anchor", "middle").text(function (datum) {
+    return datum.value;
+}).attr("fill", "white").attr("class", "labels");
 
-svg.selectAll("text.yAxis").
-    data(emotionData).
-    enter().append("svg:text").
-    attr("x", function (datum, index) {
-        return x(index) + barWidth;
-    }).
-    attr("y", height).
-    attr("dx", -barWidth / 2).
-    attr("text-anchor", "middle").
-    attr("style", "font-size: 12").
-    text(function (datum) {
-        return datum.emotion;
-    }).
-    attr("transform", "translate(0, 18)").
-    attr("class", "yAxis");
+svg.selectAll("text.yAxis").data(emotionData).enter().append("svg:text").attr("x", function (datum, index) {
+    return x(index) + barWidth;
+}).attr("y", height).attr("dx", -barWidth / 2).attr("text-anchor", "middle").attr("style", "font-size: 12").text(function (datum) {
+    return datum.emotion;
+}).attr("transform", "translate(0, 18)").attr("class", "yAxis");
 
 function updateData(data) {
     // update
