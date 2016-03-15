@@ -148,7 +148,18 @@ svg.selectAll("text.yAxis").data(emotionData).enter().append("svg:text").attr("x
     return datum.emotion;
 }).attr("transform", "translate(0, 18)").attr("class", "yAxis");
 
+var counter = 0;
+
 function updateData(data) {
+    if (counter == 0) {
+        console.log(data);
+        counter = 1;
+    }
+
+    for (var i = 0; i < data.length; i++) {
+        console.log(data[i].emotion + ' BELONGS TO ' + data[i].value);
+    }
+
     // update
     var rects = svg.selectAll("rect")
         .data(data)
