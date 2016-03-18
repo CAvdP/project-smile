@@ -213,10 +213,3 @@ window.addEventListener("DOMContentLoaded", function () {
         context.drawImage(video, 0, 0, 600, 450);
     });
 }, false);
-
-
-
-
-
-
-
