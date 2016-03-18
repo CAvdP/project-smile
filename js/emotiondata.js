@@ -1,45 +1,33 @@
-/**
- * Created by Ken Fontijne on 18-3-2016.
- */
-
 //Global variables
 var currentEmotion;
+var emotionData = [{emotion: "angry", value: 0}, {emotion: "sad", value: 0}, {emotion: "surprised", value: 0}, {emotion: "happy", value: 0}];
 
 //Define emotion
 function updateData(data) {
-
-
-    if (counter == 0) {
-        console.log(data);
-        counter = 1;
-    }
+    //Takes data from default data object and puts it into accessible emotionData array of objects
+    emotionData[0].value = data[0].value;
+    emotionData[1].value = data[1].value;
+    emotionData[2].value = data[2].value;
+    emotionData[3].value = data[3].value;
 
     for (var i = 0; i < data.length; i++) {
-
-        if ((data[i].emotion == 'angry') && (data[i].value >= 0.9)){
+        if ((data[i].emotion == 'angry') && (data[i].value >= 0.9)) {
             currentEmotion = 'angry';
             //streamSad();
             //console.log(currentEmotion);
-        }
-
-        else if ((data[i].emotion == 'sad') && (data[i].value >= 0.9)){
+        } else if ((data[i].emotion == 'sad') && (data[i].value >= 0.9)) {
             currentEmotion = 'sad';
             //streamSad();
             //console.log(currentEmotion);
-        }
-
-        else if ((data[i].emotion == 'surprised') && (data[i].value >= 0.9)){
+        } else if ((data[i].emotion == 'surprised') && (data[i].value >= 0.9)) {
             currentEmotion = 'surprised';
             //streamSad();
             //console.log(currentEmotion);
-        }
-
-        else if ((data[i].emotion == 'happy') && (data[i].value >= 0.9)){
+        } else if ((data[i].emotion == 'happy') && (data[i].value >= 0.9)) {
             currentEmotion = 'happy';
             //streamSad();
             //console.log(currentEmotion);
         }
-
     }
 
     // update
@@ -67,4 +55,16 @@ function updateData(data) {
     // exit
     rects.exit().remove();
     texts.exit().remove();
+}
+
+function detectEmotion(data) {
+    var highestValue = 0;
+    var highestEmotion;
+    for (var i = 0; i < data.length; i++) {
+        if (data[i].value > highestValue) {
+            highestValue = data[i].value;
+            highestEmotion = data[i].emotion;
+        }
+    }
+    return highestEmotion;
 }
