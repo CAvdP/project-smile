@@ -150,43 +150,6 @@ svg.selectAll("text.yAxis").data(emotionData).enter().append("svg:text").attr("x
 
 var counter = 0;
 
-function updateData(data) {
-    if (counter == 0) {
-        console.log(data);
-        counter = 1;
-    }
-
-    for (var i = 0; i < data.length; i++) {
-        console.log(data[i].emotion + ' BELONGS TO ' + data[i].value);
-    }
-
-    // update
-    var rects = svg.selectAll("rect")
-        .data(data)
-        .attr("y", function (datum) {
-            return height - y(datum.value);
-        })
-        .attr("height", function (datum) {
-            return y(datum.value);
-        });
-    var texts = svg.selectAll("text.labels")
-        .data(data)
-        .attr("y", function (datum) {
-            return height - y(datum.value);
-        })
-        .text(function (datum) {
-            return datum.value.toFixed(1);
-        });
-
-    // enter
-    rects.enter().append("svg:rect");
-    texts.enter().append("svg:text");
-
-    // exit
-    rects.exit().remove();
-    texts.exit().remove();
-}
-
 ///******** stats ********/
 //
 //stats = new Stats();
