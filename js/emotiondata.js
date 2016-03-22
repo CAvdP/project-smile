@@ -13,8 +13,10 @@ function updateData(data) {
         counter = 1;
     }
 
+    //for loop to keep track of the detected emotion's data.
     for (var i = 0; i < data.length; i++) {
 
+        //if/else statements to define currentEmotion and start the soundcloud stream() function.
         if ((data[i].emotion == 'angry') && (data[i].value >= 0.8)){
             currentEmotion = 'angry';
             streamAngry();
