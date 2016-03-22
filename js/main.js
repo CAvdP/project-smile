@@ -126,93 +126,52 @@ var svg = d3.select("#emotion_chart").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom);
 
-svg.selectAll("rect").
-    data(emotionData).
-    enter().
-    append("svg:rect").
-    attr("x", function (datum, index) {
-        return x(index);
-    }).
-    attr("y", function (datum) {
-        return height - y(datum.value);
-    }).
-    attr("height", function (datum) {
-        return y(datum.value);
-    }).
-    attr("width", barWidth).
-    attr("fill", "#2d578b");
+svg.selectAll("rect").data(emotionData).enter().append("svg:rect").attr("x", function (datum, index) {
+    return x(index);
+}).attr("y", function (datum) {
+    return height - y(datum.value);
+}).attr("height", function (datum) {
+    return y(datum.value);
+}).attr("width", barWidth).attr("fill", "#2d578b");
 
-svg.selectAll("text.labels").
-    data(emotionData).
-    enter().
-    append("svg:text").
-    attr("x", function (datum, index) {
-        return x(index) + barWidth;
-    }).
-    attr("y", function (datum) {
-        return height - y(datum.value);
-    }).
-    attr("dx", -barWidth / 2).
-    attr("dy", "1.2em").
-    attr("text-anchor", "middle").
-    text(function (datum) {
-        return datum.value;
-    }).
-    attr("fill", "white").
-    attr("class", "labels");
+svg.selectAll("text.labels").data(emotionData).enter().append("svg:text").attr("x", function (datum, index) {
+    return x(index) + barWidth;
+}).attr("y", function (datum) {
+    return height - y(datum.value);
+}).attr("dx", -barWidth / 2).attr("dy", "1.2em").attr("text-anchor", "middle").text(function (datum) {
+    return datum.value;
+}).attr("fill", "white").attr("class", "labels");
 
-svg.selectAll("text.yAxis").
-    data(emotionData).
-    enter().append("svg:text").
-    attr("x", function (datum, index) {
-        return x(index) + barWidth;
-    }).
-    attr("y", height).
-    attr("dx", -barWidth / 2).
-    attr("text-anchor", "middle").
-    attr("style", "font-size: 12").
-    text(function (datum) {
-        return datum.emotion;
-    }).
-    attr("transform", "translate(0, 18)").
-    attr("class", "yAxis");
+svg.selectAll("text.yAxis").data(emotionData).enter().append("svg:text").attr("x", function (datum, index) {
+    return x(index) + barWidth;
+}).attr("y", height).attr("dx", -barWidth / 2).attr("text-anchor", "middle").attr("style", "font-size: 12").text(function (datum) {
+    return datum.emotion;
+}).attr("transform", "translate(0, 18)").attr("class", "yAxis");
 
-function updateData(data) {
-    // update
-    var rects = svg.selectAll("rect")
-        .data(data)
-        .attr("y", function (datum) {
-            return height - y(datum.value);
-        })
-        .attr("height", function (datum) {
-            return y(datum.value);
-        });
-    var texts = svg.selectAll("text.labels")
-        .data(data)
-        .attr("y", function (datum) {
-            return height - y(datum.value);
-        })
-        .text(function (datum) {
-            return datum.value.toFixed(1);
-        });
+///******** stats ********/
+//
+//stats = new Stats();
+//stats.domElement.style.position = 'absolute';
+//stats.domElement.style.top = '0px';
+//document.getElementById('container').appendChild(stats.domElement);
+//
+//// update stats on every iteration
+//document.addEventListener('clmtrackrIteration', function () {
+//    stats.update();
+//}, false);
 
-    // enter
-    rects.enter().append("svg:rect");
-    texts.enter().append("svg:text");
+var detectedEmotion;
 
-    // exit
-    rects.exit().remove();
-    texts.exit().remove();
-}
+window.addEventListener("DOMContentLoaded", function () {
+    // Grab elements, create settings, etc.
+    var canvas = document.getElementById("canvas"),
+        context = canvas.getContext("2d"),
+        video = document.getElementById("videoel");
 
-/******** stats ********/
-
-stats = new Stats();
-stats.domElement.style.position = 'absolute';
-stats.domElement.style.top = '0px';
-document.getElementById('container').appendChild(stats.domElement);
-
-// update stats on every iteration
-document.addEventListener('clmtrackrIteration', function () {
-    stats.update();
+    // Trigger photo take
+    document.getElementById("snap").addEventListener("click", function () {
+        context.drawImage(video, 0, 0, 600, 450);
+        detectedEmotion = detectEmotion(emotionData);
+        console.log("Detected emotion: " + detectedEmotion);
+    });
 }, false);
