@@ -8,7 +8,6 @@ var currentEmotion;
 //Define emotion
 function updateData(data) {
 
-
     if (counter == 0) {
         console.log(data);
         counter = 1;
@@ -16,27 +15,27 @@ function updateData(data) {
 
     for (var i = 0; i < data.length; i++) {
 
-        if ((data[i].emotion == 'angry') && (data[i].value >= 0.9)){
+        if ((data[i].emotion == 'angry') && (data[i].value >= 0.8)){
             currentEmotion = 'angry';
-            //streamSad();
+            streamAngry();
             //console.log(currentEmotion);
         }
 
-        else if ((data[i].emotion == 'sad') && (data[i].value >= 0.9)){
+        else if ((data[i].emotion == 'sad') && (data[i].value >= 0.8)){
             currentEmotion = 'sad';
-            //streamSad();
+            streamSad();
             //console.log(currentEmotion);
         }
 
-        else if ((data[i].emotion == 'surprised') && (data[i].value >= 0.9)){
+        else if ((data[i].emotion == 'surprised') && (data[i].value >= 0.8)){
             currentEmotion = 'surprised';
-            //streamSad();
+            streamSurprised();
             //console.log(currentEmotion);
         }
 
-        else if ((data[i].emotion == 'happy') && (data[i].value >= 0.9)){
+        else if ((data[i].emotion == 'happy') && (data[i].value >= 0.8)){
             currentEmotion = 'happy';
-            //streamSad();
+            streamHappy();
             //console.log(currentEmotion);
         }
 

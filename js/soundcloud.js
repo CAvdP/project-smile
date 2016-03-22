@@ -9,11 +9,30 @@ SC.initialize({
 
 
 //Stream sound of specific emotion
-function streamSad()
+function streamAngry()
 {
-    SC.stream('/tracks/251958056').then(function(player){
+    SC.stream('/tracks/252585653').then(function(player){
         player.play();
     });
 }
 
+function streamSad()
+{
+    SC.stream('/tracks/252585644').then(function(player){
+        player.play();
+    });
+}
 
+function streamSurprised()
+{
+    SC.stream('/tracks/188284691').then(function(player){
+        player.play();
+    });
+}
+
+function streamHappy()
+{
+    SC.stream('/tracks/252585649').then(function(player){
+        player.play();
+    });
+}
