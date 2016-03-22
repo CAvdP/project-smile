@@ -148,8 +148,6 @@ svg.selectAll("text.yAxis").data(emotionData).enter().append("svg:text").attr("x
     return datum.emotion;
 }).attr("transform", "translate(0, 18)").attr("class", "yAxis");
 
-var counter = 0;
-
 ///******** stats ********/
 //
 //stats = new Stats();
@@ -162,8 +160,7 @@ var counter = 0;
 //    stats.update();
 //}, false);
 
-
-
+var detectedEmotion;
 
 window.addEventListener("DOMContentLoaded", function () {
     // Grab elements, create settings, etc.
@@ -172,14 +169,9 @@ window.addEventListener("DOMContentLoaded", function () {
         video = document.getElementById("videoel");
 
     // Trigger photo take
-        document.getElementById("snap").addEventListener("click", function () {
+    document.getElementById("snap").addEventListener("click", function () {
         context.drawImage(video, 0, 0, 600, 450);
+        detectedEmotion = detectEmotion(emotionData);
+        console.log("Detected emotion: " + detectedEmotion);
     });
 }, false);
-
-
-
-
-
-
-
