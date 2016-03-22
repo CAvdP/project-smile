@@ -1,6 +1,9 @@
 //Global variables
 var currentEmotion;
-var emotionData = [{emotion: "angry", value: 0}, {emotion: "sad", value: 0}, {emotion: "surprised", value: 0}, {emotion: "happy", value: 0}];
+var emotionData = [{emotion: "angry", value: 0}, {emotion: "sad", value: 0}, {
+    emotion: "surprised",
+    value: 0
+}, {emotion: "happy", value: 0}];
 
 //Define emotion
 function updateData(data) {
@@ -15,67 +18,66 @@ function updateData(data) {
     for (var i = 0; i < data.length; i++) {
 
         //if/else statements to define currentEmotion and start the soundcloud stream() function.
-            if ((data[i].emotion == 'angry') && (data[i].value >= 0.8)) {
-                currentEmotion = 'angry';
-                streamAngry();
-                //console.log(currentEmotion);
-            }
-
-             else if ((data[i].emotion == 'sad') && (data[i].value >= 0.8)) {
-                currentEmotion = 'sad';
-                streamSad();
-                //console.log(currentEmotion);
-            }
-
-             else if ((data[i].emotion == 'surprised') && (data[i].value >= 0.8)) {
-                currentEmotion = 'surprised';
-                streamSurprised();
-                //console.log(currentEmotion);
-            }
-
-             else if ((data[i].emotion == 'happy') && (data[i].value >= 0.8)) {
-                currentEmotion = 'happy';
-                streamHappy();
-                //console.log(currentEmotion);
-            }
+        if ((data[i].emotion == 'angry') && (data[i].value >= 0.8)) {
+            currentEmotion = 'angry';
+            streamAngry();
+            //console.log(currentEmotion);
         }
 
-        // update
-        var rects = svg.selectAll("rect")
-            .data(data)
-            .attr("y", function (datum) {
-                return height - y(datum.value);
-            })
-            .attr("height", function (datum) {
-                return y(datum.value);
-            });
-        var texts = svg.selectAll("text.labels")
-            .data(data)
-            .attr("y", function (datum) {
-                return height - y(datum.value);
-            })
-            .text(function (datum) {
-                return datum.value.toFixed(1);
-            });
-
-        // enter
-        rects.enter().append("svg:rect");
-        texts.enter().append("svg:text");
-
-        // exit
-        rects.exit().remove();
-        texts.exit().remove();
-    }
-
-    function detectEmotion(data) {
-        var highestValue = 0;
-        var highestEmotion;
-        for (var i = 0; i < data.length; i++) {
-            if (data[i].value > highestValue) {
-                highestValue = data[i].value;
-                highestEmotion = data[i].emotion;
-            }
+        else if ((data[i].emotion == 'sad') && (data[i].value >= 0.8)) {
+            currentEmotion = 'sad';
+            streamSad();
+            //console.log(currentEmotion);
         }
-        return highestEmotion;
+
+        else if ((data[i].emotion == 'surprised') && (data[i].value >= 0.8)) {
+            currentEmotion = 'surprised';
+            streamSurprised();
+            //console.log(currentEmotion);
+        }
+
+        else if ((data[i].emotion == 'happy') && (data[i].value >= 0.8)) {
+            currentEmotion = 'happy';
+            streamHappy();
+            //console.log(currentEmotion);
+        }
     }
+
+    // update
+    var rects = svg.selectAll("rect")
+        .data(data)
+        .attr("y", function (datum) {
+            return height - y(datum.value);
+        })
+        .attr("height", function (datum) {
+            return y(datum.value);
+        });
+    var texts = svg.selectAll("text.labels")
+        .data(data)
+        .attr("y", function (datum) {
+            return height - y(datum.value);
+        })
+        .text(function (datum) {
+            return datum.value.toFixed(1);
+        });
+
+    // enter
+    rects.enter().append("svg:rect");
+    texts.enter().append("svg:text");
+
+    // exit
+    rects.exit().remove();
+    texts.exit().remove();
+}
+
+function detectEmotion(data) {
+    var highestValue = 0;
+    var highestEmotion;
+    for (var i = 0; i < data.length; i++) {
+        if (data[i].value > highestValue) {
+            highestValue = data[i].value;
+            highestEmotion = data[i].emotion;
+        }
+    }
+    return highestEmotion;
 }
