@@ -14,7 +14,7 @@ function init () {
 function getFlickrPhotos() {
     return $.ajax({
         method: 'GET',
-        url: 'showPhotos.php',
+        url: 'php/showPhotos.php',
         dataType: 'json'
     });
 }

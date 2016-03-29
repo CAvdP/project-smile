@@ -173,5 +173,17 @@ window.addEventListener("DOMContentLoaded", function () {
         context.drawImage(video, 0, 0, 600, 450);
         detectedEmotion = detectEmotion(emotionData);
         console.log("Detected emotion: " + detectedEmotion);
+        var canvas = document.getElementById("canvas");
+        var dataURL    = canvas.toDataURL("image/png");
+        $.ajax({
+            type: "POST",
+            url: "php/uploadPhotos.php",
+            data: {
+                imgBase64: dataURL
+            }
+        }).done(function(o) {
+            console.log('saved');
+        });
+
     });
 }, false);
