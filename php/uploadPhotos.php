@@ -3,9 +3,9 @@
 require_once('../includes/dbConnect.php');
 require_once('../includes/settings.php');
 
-$sql = new mysqli($host, $user, $pass, $db);
+$mysqli = new mysqli($host, $user, $pass, $db);
 
-$countResult = $sql->query("SELECT * FROM `number_counter`;");
+$countResult = $mysqli->query("SELECT * FROM `number_counter`");
 for ($num = array (); $row = $countResult->fetch_assoc(); $num[] = $row);
 print_r($num);
 
@@ -21,6 +21,11 @@ var_dump($img);
 //$target_dir = "../uploads/";
 
 //file_put_contents($target_dir . $fileName, $fileData);
+$mysqli->close();
+/**
+ * fetch count > add count to photo name > plus one on count var >
+ * upload updated count back to db > upload image link to db
+ */
 
 //$target_dir = "uploads/";
 //$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
