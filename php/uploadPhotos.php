@@ -3,28 +3,57 @@
 require_once('../includes/dbConnect.php');
 require_once('../includes/settings.php');
 
+// Create new mysqli connection
 $mysqli = new mysqli($host, $user, $pass, $db);
 
+// Fetch counter value to add to photo name
 $countResult = $mysqli->query("SELECT * FROM `number_counter`");
 for ($num = array (); $row = $countResult->fetch_assoc(); $num[] = $row);
-print_r($num);
+// var_dump($num);
 
+// Use base64_decode to create png file from given string from POST
 $img = $_POST['imgBase64'];
 $img = str_replace('data:image/png;base64,', '', $img);
 $img = str_replace(' ', '+', $img);
 $fileData = base64_decode($img);
 var_dump($img);
 
-//saving
-//$i = 0;
-//$fileName = 'img_' . $i++ . '.png';
-//$target_dir = "../uploads/";
+// Saving the png file with correct name and location directory
+$i = $num;
+$fileName = 'img_' . $i++ . '.png';
+$target_dir = "../uploads/";
 
-//file_put_contents($target_dir . $fileName, $fileData);
+// Send png file to target directory
+file_put_contents($target_dir . $fileName, $fileData);
+var_dump($i);
+
+// Query for updating count to counter table
+//$countUpdate = $mysqli->query("UPDATE `number_counter` SET `$i` WHERE `count` = `$i`");
+
+// Link location as string
+$link = '';
+
+// Emotion value from taken photo
+$emotion = '';
+
+// Current date at moment of taken photo
+$date = '';
+
+// Query for inserting photo data into db
+//$photoQuery = $mysqli->query("INSERT INTO `fotodata` (`link`, `emotion`, `date`)
+//VALUES ('$link', '$emotion', $date)");
+
+// Close mysqli connection
 $mysqli->close();
+
 /**
+ * Steps of upload script:
+ *
  * fetch count > add count to photo name > plus one on count var >
  * upload updated count back to db > upload image link to db
+ *
+ * Following commented section is a standard upload script.
+ * The script needs adjustments after the API is up and running or maybe isn't needed at all.
  */
 
 //$target_dir = "uploads/";

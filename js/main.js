@@ -173,8 +173,12 @@ window.addEventListener("DOMContentLoaded", function () {
         context.drawImage(video, 0, 0, 600, 450);
         detectedEmotion = detectEmotion(emotionData);
         console.log("Detected emotion: " + detectedEmotion);
+
+        // Convert snapshot to base64 string
         var canvas = document.getElementById("canvas");
         var dataURL    = canvas.toDataURL("image/png");
+
+        // AJAX Call to send base64 string to upload php file for processing
         $.ajax({
             type: "POST",
             url: "php/uploadPhotos.php",
