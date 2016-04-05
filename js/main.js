@@ -169,7 +169,7 @@ window.addEventListener("DOMContentLoaded", function () {
         video = document.getElementById("videoel");
 
     // Trigger photo take
-    document.getElementById("snap").addEventListener("click", function () {
+    document.getElementById("photoButton").addEventListener("click", function () {
         context.drawImage(video, 0, 0, 600, 450);
         detectedEmotion = detectEmotion(emotionData);
         console.log("Detected emotion: " + detectedEmotion);
