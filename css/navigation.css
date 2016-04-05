@@ -1,5 +1,4 @@
-#page
-{
+#page {
 
     width: 1000px;
     height: 600px;
@@ -10,34 +9,32 @@
     box-shadow: 0 0 25px #888888;
 }
 
-
-text
-{
+text {
     font-family: helvetica sans-serif;
 }
+
 body {
     margin: 0 auto;
     height: 100%;
-    overflow:hidden;
+    overflow: hidden;
     background-color: #e6ffff;
 }
 
-
 #content {
-    margin-top : 50px;
-    margin-left : auto;
-    margin-right : auto;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
 }
-
 
 #sketch, #filter {
     display: none;
 }
+
 h2 {
-    font-weight : 400;
+    font-weight: 400;
 }
-#footer
-{
+
+#footer {
     width: 100%;
     padding: 0;
     position: fixed;
@@ -46,14 +43,13 @@ h2 {
     z-index: -1;
 }
 
-#title
-{
+#title {
     display: block;
     margin: 30px auto 0;
     height: 150px;
 }
-.button
-{
+
+.button {
     width: 120px;
     height: 120px;
     font-size: 15px;
@@ -63,36 +59,32 @@ h2 {
     border: solid 5px #CC0033;
     background-color: #CC0033;
 }
-.button:hover
-{
+
+.button:hover {
     width: 120px;
     height: 120px;
     color: #CC0033;
     background-color: white;
 }
-i.material-icons
-{
+
+i.material-icons {
     font-size: 400%;
 }
-#icons
-{
+
+#icons {
     width: 1000px;
     height: 130px;
-    background: dodgerblue;
+    background: white;
     display: block;
     margin-top: 470px;
 
-
-
-
 }
-#backButton, #startButton, #uploadButton
-{
+
+#backButton, #startButton, #uploadButton {
     margin-right: 36px;
 }
 
-#toolbar
-{
+#toolbar {
     width: 380px;
     height: 450px;
     /*background: red;*/
