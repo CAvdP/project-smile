@@ -1,62 +1,51 @@
-*
-{
+* {
     margin: 0;
     padding: 0;
 }
-html
-{
 
+html {
 }
-body
-{
+
+body {
     background-color: #005108;
     background: url("http://worldartsme.com/images/landscape-clipart-1.jpg");
     background-repeat: no-repeat;
     background-size: 101%;
 
-
-}
-nav
-{
-
 }
 
-#photoContainer
-{
+nav {
+}
+
+#photoContainer {
     background: rgba(255, 255, 255, 0.9);;
-    margin:5%;
+    margin: 5%;
     width: 90%;
     /*height: 80%;*/
     position: fixed;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
     border-radius: 15px;
 }
-.row
-{
 
+.row {
     width: 96%;
     margin: 1.7% 2% 0;
     /*height: 42%;*/
     list-style-type: none;
 }
 
-.row li
-{
-
-    display:inline-block;
+.row li {
+    display: inline-block;
     width: 23%;
     height: auto;
     margin: 1%;
 }
-img
-{
+
+img {
     width: 100%;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
 }
 
-#informationBar
-{
+#informationBar {
     height: 55px;
-
 }
-

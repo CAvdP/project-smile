@@ -1,130 +1,91 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Project Smile</title>
-    <meta charset="utf-8">
-    <!--Google icon font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Stylesheet-->
-    <link href="css/style.css" rel="stylesheet">
+	<title>Project Smile</title>
+	<meta charset="utf-8">
+	<!--Google icon font-->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!--Stylesheet-->
+	<link href="css/style.css" rel="stylesheet">
 </head>
 <body>
 <img id="title" src="http://ukiyocon.com/images/projectsmile.png">
 <!--Contains Page and Emotion bars-->
 <div id="content">
 
+	<!--navbar-->
+	<div class="header">
+		<a id="new" class="navbtn">New</a>
+		<div class="title">Sketch Pad</div>
+	</div>
 
-    <!--navbar-->
-    <div class="header">
-        <a id="new" class="navbtn">New</a>
-        <div class="title">Sketch Pad</div>
-    </div>
+	<!--Page; contains Video stream and Main buttons-->
+	<div id="page">
+		<div id="top">
+			<video id="videoel" width="600" height="450" preload="auto" loop></video>
+			<canvas id="overlay" width="600" height="450"></canvas>
+			<canvas id="pictureFrame" width="600" height="450"></canvas>
+			<div id="paintContainer"><p style="text-align:center">Loading Canvas...</p></div>
+			<!--<canvas id="sketch" width="600" height="450"></canvas>-->
 
+			<!--Toolbar; Loads emotions and color palette-->
+			<div id="toolbar">
+				<!--Emotion bars-->
+				<div id="emotion_container">
+					<div id="emotion_icons">
+						<img class="emotion_icon" id="icon1" src="http://emoticonshd.com/smileys/34.png">
+						<img class="emotion_icon" id="icon2" src="http://emoticonshd.com/smileys/19.png">
+						<img class="emotion_icon" id="icon3" src="http://emoticonshd.com/smileys/29.png">
+						<img class="emotion_icon" id="icon4" src="http://emoticonshd.com/smileys/03.png">
+					</div>
+					<div id='emotion_chart'></div>
+				</div>
 
+				<div class="colorBox">
+					<div class="palette-case">
+						<div class="palette-box">
+							<div class="palette white"></div>
+						</div>
+						<div class="palette-box">
+							<div class="palette red"></div>
+						</div>
+						<div class="palette-box">
+							<div class="palette blue"></div>
+						</div>
+						<div class="palette-box">
+							<div class="palette green"></div>
+						</div>
+						<div class="palette-box">
+							<div class="palette black"></div>
+						</div>
+						<div style="clear:both"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="blok6"></div>
 
-    <!--Page; contains Video stream and Main buttons-->
-    <div id="page">
-        <div id="top">
-        <video id="videoel" width="600" height="450" preload="auto" loop></video>
-        <canvas id="overlay" width="600" height="450"></canvas>
-        <canvas id="pictureFrame" width="600" height="450"></canvas>
-        <div id="paintContainer"><p style="text-align:center">Loading Canvas...</p></div>
-        <!--<canvas id="sketch" width="600" height="450"></canvas>-->
+		<!--Video stream container-->
+		<!--<div id="container">-->
 
-        <!--Toolbar; Loads emotions and color palette-->
-        <div id="toolbar">
-            <!--Emotion bars-->
-            <div id="emotion_container">
-                <div id="emotion_icons">
-                    <img class="emotion_icon" id="icon1" src="http://emoticonshd.com/smileys/34.png">
-                    <img class="emotion_icon" id="icon2" src="http://emoticonshd.com/smileys/19.png">
-                    <img class="emotion_icon" id="icon3" src="http://emoticonshd.com/smileys/29.png">
-                    <img class="emotion_icon" id="icon4" src="http://emoticonshd.com/smileys/03.png">
-                </div>
-                <div id='emotion_chart'></div>
-            </div>
-
-
-            <div class="colorBox">
-                <div class="palette-case">
-                    <div class="palette-box">
-                        <div class="palette white"></div>
-                    </div>
-                    <div class="palette-box">
-                        <div class="palette red"></div>
-                    </div>
-                    <div class="palette-box">
-                        <div class="palette blue"></div>
-                    </div>
-                    <div class="palette-box">
-                        <div class="palette green"></div>
-                    </div>
-                    <div class="palette-box">
-                        <div class="palette black"></div>
-                    </div>
-                    <div style="clear:both"></div>
-                </div>
-            </div>
-
-
-
-
-
-
-        </div>
-
+		<!--</div>-->
+		<div id="icons">
+			<button type="button" id="backButton" class="button"><i class="material-icons">keyboard_return</i><br>Terug
+			</button>
+			<button type="button" id="startButton" class="button" onclick="startVideo()"><i class="material-icons">photo_camera</i><br>Start
+			</button>
+			<button type="button" id="uploadButton" class="button"><i class="material-icons">file_upload</i><br>Opslaan
+			</button>
+			<button type="button" id="beeldButton" class="button"><i class="material-icons">tv</i><br>Beeldscherm
+			</button>
+		</div>
+	</div>
 </div>
-
-<div id="blok6"></div>
-
-
-
-        <!--Video stream container-->
-        <!--<div id="container">-->
-
-
-        <!--</div>-->
-        <div id="icons">
-            <button type="button" id="backButton" class="button"><i class="material-icons">keyboard_return</i><br>Terug
-            </button>
-            <button type="button" id="startButton" class="button" onclick="startVideo()"><i class="material-icons">photo_camera</i><br>Start
-            </button>
-            <button type="button" id="uploadButton" class="button"><i class="material-icons">file_upload</i><br>Opslaan
-            </button>
-            <button type="button" id="beeldButton" class="button"><i class="material-icons">tv</i><br>Beeldscherm
-            </button>
-        </div>
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-
 
 <div id="leftpage">
-
-    <button id="snap">Snap Photo</button>
-    <canvas id="canvas" width="600" height="450"></canvas>
-
+	<button id="snap">Snap Photo</button>
+	<canvas id="canvas" width="600" height="450"></canvas>
 </div>
-
 
 <!--Footer-->
 <img id="footer" src="http://ukiyocon.com/images/grass.png">
