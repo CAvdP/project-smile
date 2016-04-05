@@ -58,7 +58,7 @@ if (navigator.getUserMedia) {
         }
         vid.play();
     }, function () {
-        //insertAltVideo(vid);
+        // insertAltVideo(vid);
         alert("There was some problem trying to fetch video from your webcam. If you have a webcam, please make sure to accept when the browser asks for access to your webcam.");
     });
 } else {
