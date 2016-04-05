@@ -162,7 +162,12 @@ svg.selectAll("text.yAxis").data(emotionData).enter().append("svg:text").attr("x
 
 var detectedEmotion;
 
-window.addEventListener("DOMContentLoaded", function () {
+// window.addEventListener("DOMContentLoaded", function () {
+//
+//
+// }, false);
+
+function takePhoto() {
     // Grab elements, create settings, etc.
     var canvas = document.getElementById("pictureFrame"),
         context = canvas.getContext("2d"),
@@ -181,13 +186,13 @@ window.addEventListener("DOMContentLoaded", function () {
         // AJAX Call to send base64 string to upload php file for processing
         $.ajax({
             type: "POST",
-            url: "php/mergeCanvas.php",
+            url: "php/savePhoto.php",
             data: {
                 imgBase64: dataURL
             }
-        }).done(function(o) {
+        }).done(function (o) {
             console.log('saved');
         });
 
     });
-}, false);
+}
