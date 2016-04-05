@@ -1,0 +1,28 @@
+#emotion_container {
+    margin: 0 auto;
+    font-size: 16px;
+    font-weight: 600;
+    width: 380px;
+    height: 200px;
+    float: left;
+}
+#emotion_icons {
+    height: 50px;
+    padding-left: 23px;
+}
+.emotion_icon {
+    width : 65px;
+    height : 65px;
+    margin-right: 16px;
+}
+#emotion_chart, #emotion_icons {
+    margin: 0 auto;
+    width : 400px;
+}
+#icon1, #icon2, #icon3, #icon4, #icon5, #icon6 {
+    visibility : hidden;
+}
+.bar {
+    fill : steelblue;
+    fill-opacity : .9;
+}

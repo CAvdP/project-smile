@@ -1,0 +1,53 @@
+#videoel {
+    width: 600px;
+    height: 450px;
+    position: absolute;
+    z-index: 1;
+
+
+    float: left;
+
+    -o-transform : scaleX(-1);
+    -webkit-transform : scaleX(-1);
+    transform : scaleX(-1);
+    -ms-filter : fliph; /*IE*/
+    filter : fliph; /*IE*/
+
+
+}
+#overlay {
+    -o-transform : scaleX(-1);
+    -webkit-transform : scaleX(-1);
+    transform : scaleX(-1);
+    -ms-filter : fliph; /*IE*/
+    filter : fliph; /*IE*/
+    position: absolute;
+    width : 600px;
+    height : 450px;
+    z-index: 2;
+}
+#pictureFrame
+{
+    position: absolute;
+    width : 600px;
+    height : 450px;
+    z-index: 3;
+}
+
+#paintContainer{
+    position: absolute;
+    width: 600px;
+    height: 450px;
+    overflow:hidden;
+    z-index: 4;
+}
+
+
+
+#leftpage
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+

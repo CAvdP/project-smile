@@ -1,0 +1,100 @@
+#page
+{
+
+    width: 1000px;
+    height: 600px;
+    margin: 3% auto 0;
+    background: white;
+    border: solid 20px white;
+    border-radius: 10px;
+    box-shadow: 0 0 25px #888888;
+}
+
+
+text
+{
+    font-family: helvetica sans-serif;
+}
+body {
+    margin: 0 auto;
+    height: 100%;
+    overflow:hidden;
+    background-color: #e6ffff;
+}
+
+
+#content {
+    margin-top : 50px;
+    margin-left : auto;
+    margin-right : auto;
+}
+
+
+#sketch, #filter {
+    display: none;
+}
+h2 {
+    font-weight : 400;
+}
+#footer
+{
+    width: 100%;
+    padding: 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+}
+
+#title
+{
+    display: block;
+    margin: 30px auto 0;
+    height: 150px;
+}
+.button
+{
+    width: 120px;
+    height: 120px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 25px;
+    color: white;
+    border: solid 5px #CC0033;
+    background-color: #CC0033;
+}
+.button:hover
+{
+    width: 120px;
+    height: 120px;
+    color: #CC0033;
+    background-color: white;
+}
+i.material-icons
+{
+    font-size: 400%;
+}
+#icons
+{
+    width: 1000px;
+    height: 130px;
+    background: dodgerblue;
+    display: block;
+    margin-top: 470px;
+
+
+
+
+}
+#backButton, #startButton, #uploadButton
+{
+    margin-right: 36px;
+}
+
+#toolbar
+{
+    width: 380px;
+    height: 450px;
+    /*background: red;*/
+    float: right;
+}
