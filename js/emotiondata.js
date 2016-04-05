@@ -1,9 +1,6 @@
 //Global variables
+var emotionData = [{emotion: "angry", value: 0}, {emotion: "sad", value: 0}, {emotion: "surprised", value: 0}, {emotion: "happy", value: 0}];
 var currentEmotion;
-var emotionData = [{emotion: "angry", value: 0}, {emotion: "sad", value: 0}, {
-    emotion: "surprised",
-    value: 0
-}, {emotion: "happy", value: 0}];
 
 //Define emotion
 function updateData(data) {
@@ -19,27 +16,27 @@ function updateData(data) {
 
         //if/else statements to define currentEmotion and start the soundcloud stream() function.
         if ((data[i].emotion == 'angry') && (data[i].value >= 0.8)) {
-            currentEmotion = 'angry';
             streamAngry();
-            //console.log(currentEmotion);
+            currentEmotion = 'angry';
+            console.log(currentEmotion);
         }
 
         else if ((data[i].emotion == 'sad') && (data[i].value >= 0.8)) {
-            currentEmotion = 'sad';
             streamSad();
-            //console.log(currentEmotion);
+            currentEmotion = 'sad';
+            console.log(currentEmotion);
         }
 
         else if ((data[i].emotion == 'surprised') && (data[i].value >= 0.8)) {
-            currentEmotion = 'surprised';
             streamSurprised();
-            //console.log(currentEmotion);
+            currentEmotion = 'surprised';
+            console.log(currentEmotion);
         }
 
         else if ((data[i].emotion == 'happy') && (data[i].value >= 0.8)) {
-            currentEmotion = 'happy';
             streamHappy();
-            //console.log(currentEmotion);
+            currentEmotion = 'happy';
+            console.log(currentEmotion);
         }
     }
 
