@@ -112,3 +112,18 @@ $.fn.drawMouse = function() {
     $(this).on("mousemove", move);
     $(window).on("mouseup", stop);
 };
+
+// Convert snapshot to base64 string
+var canvas = document.getElementById("canvas");
+var dataURLCanvas = canvas.toDataURL("image/png");
+
+// AJAX Call to send base64 string to upload php file for processing
+$.ajax({
+    type: "POST",
+    url: "php/mergeCanvas.php",
+    data: {
+        canvasBase64: dataURLCanvas
+    }
+}).done(function(o) {
+    console.log('saved');
+});

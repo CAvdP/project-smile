@@ -176,12 +176,12 @@ window.addEventListener("DOMContentLoaded", function () {
 
         // Convert snapshot to base64 string
         var canvas = document.getElementById("pictureFrame");
-        var dataURL    = canvas.toDataURL("image/png");
+        var dataURL = canvas.toDataURL("image/png");
         
         // AJAX Call to send base64 string to upload php file for processing
         $.ajax({
             type: "POST",
-            url: "php/uploadPhotos.php",
+            url: "php/mergeCanvas.php",
             data: {
                 imgBase64: dataURL
             }
