@@ -11,28 +11,28 @@ SC.initialize({
 //Stream sound of specific emotion
 function streamAngry()
 {
-    SC.stream('/tracks/252585653').then(function(player){
-        player.play();
-    });
+        SC.stream('/tracks/257396969').then(function(player){
+            player.play();
+        });
 }
 
 function streamSad()
 {
-    SC.stream('/tracks/252585644').then(function(player){
-        player.play();
-    });
+        SC.stream('/tracks/257396974').then(function(player){
+            player.play();
+        });
 }
 
 function streamSurprised()
 {
-    SC.stream('/tracks/188284691').then(function(player){
-        player.play();
-    });
+        SC.stream('/tracks/257396978').then(function(player){
+            player.play();
+        });
 }
 
 function streamHappy()
 {
-    SC.stream('/tracks/252585649').then(function(player){
-        player.play();
-    });
+        SC.stream('/tracks/257396971').then(function(player){
+            player.play();
+        });
 }

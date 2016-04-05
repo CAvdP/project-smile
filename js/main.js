@@ -84,7 +84,7 @@ function startVideo() {
 
 function drawLoop() {
     requestAnimFrame(drawLoop);
-    overlayCC.clearRect(0, 0, 400, 300);
+    overlayCC.clearRect(0, 0, 600, 450);
     //psrElement.innerHTML = "score :" + ctrack.getScore().toFixed(4);
     if (ctrack.getCurrentPosition()) {
         ctrack.draw(overlay);
@@ -164,7 +164,7 @@ var detectedEmotion;
 
 window.addEventListener("DOMContentLoaded", function () {
     // Grab elements, create settings, etc.
-    var canvas = document.getElementById("canvas"),
+    var canvas = document.getElementById("pictureFrame"),
         context = canvas.getContext("2d"),
         video = document.getElementById("videoel");
 
@@ -175,7 +175,7 @@ window.addEventListener("DOMContentLoaded", function () {
         console.log("Detected emotion: " + detectedEmotion);
 
         // Convert snapshot to base64 string
-        var canvas = document.getElementById("canvas");
+        var canvas = document.getElementById("pictureFrame");
         var dataURL    = canvas.toDataURL("image/png");
         
         // AJAX Call to send base64 string to upload php file for processing
