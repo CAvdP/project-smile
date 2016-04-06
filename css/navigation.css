@@ -80,9 +80,9 @@ i.material-icons {
 
 }
 
-#startButton, #photoButton, #uploadButton {
-    margin-left: 25px;
-    margin-right: 25px;
+#startButton, #photoButton, #undoButton, #uploadButton {
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 #toolbar {

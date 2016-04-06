@@ -13,5 +13,3 @@ $target_dir = "../uploads/";
 
 // Send png file to target directory
 $png_img = file_put_contents($target_dir . $fileName, $fileData);
-
-include "mergeCanvas.php";

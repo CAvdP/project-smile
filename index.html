@@ -14,10 +14,10 @@
 <div id="content">
 
     <!--navbar-->
-    <div class="header">
+    <!-- <div class="header">
         <a id="new" class="navbtn">New</a>
         <div class="title">Sketch Pad</div>
-    </div>
+    </div> -->
 
     <!--Page; contains Video stream and Main buttons-->
     <div id="page">
@@ -71,10 +71,13 @@
         <div id="icons">
             <button type="button" id="startButton" class="button" onclick="startVideo();"><i class="material-icons">play_arrow</i><br>Start
             </button>
-            <button type="button" id="photoButton" class="button" onclick="stopUpdateData();takePhoto();"><i class="material-icons">photo_camera</i><br>Foto
+            <button type="button" id="photoButton" class="button" onclick="takePhoto();stopUpdateData();"><i class="material-icons">photo_camera</i><br>Foto
+            </button>
+            <button type="button" id="undoButton" class="button" onclick="newCanvas();"><i class="material-icons">undo</i><br>Overnieuw
             </button>
             <button type="button" id="uploadButton" class="button" onclick="saveSketch();"><i class="material-icons">file_upload</i><br>Opslaan
             </button>
+            <!-- <a id="new" class="navbtn">New</a> -->
         </div>
     </div>
 </div>

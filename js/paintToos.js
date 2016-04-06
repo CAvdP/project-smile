@@ -22,9 +22,9 @@ $(document).ready(function () {
     });
 
     // link the new button with newCanvas() function
-    $("#new").click(function () {
-        newCanvas();
-    });
+    // $("#new").click(function () {
+    //     newCanvas();
+    // });
 });
 
 // function to setup a new canvas for drawing
@@ -126,6 +126,6 @@ function saveSketch() {
             canvasBase64: dataURL
         }
     }).done(function (o) {
-        console.log('saved');
+        document.location.reload();
     });
 };

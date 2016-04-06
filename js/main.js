@@ -174,7 +174,6 @@ function takePhoto() {
         video = document.getElementById("videoel");
 
     // Trigger photo take
-    document.getElementById("photoButton").addEventListener("click", function () {
         context.drawImage(video, 0, 0, 600, 450);
         detectedEmotion = detectEmotion(emotionData);
         console.log("Detected emotion: " + detectedEmotion);
@@ -193,6 +192,4 @@ function takePhoto() {
         }).done(function (o) {
             console.log('saved');
         });
-
-    });
 }
