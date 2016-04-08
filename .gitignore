@@ -1,3 +1,7 @@
 .idea
 uploads/
+<<<<<<< HEAD
 images/
+=======
+php/database.php
+>>>>>>> 7fe140e40ab7a80c5e6cdc22161841b5410884f8

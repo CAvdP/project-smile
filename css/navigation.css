@@ -54,7 +54,11 @@ h2 {
     height: 120px;
     font-size: 15px;
     font-weight: 600;
+<<<<<<< HEAD
     border-radius: 60px;
+=======
+    border-radius: 50px;
+>>>>>>> 7fe140e40ab7a80c5e6cdc22161841b5410884f8
     color: white;
     border: solid 5px white;
     background-color: white;
