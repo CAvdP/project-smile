@@ -49,3 +49,12 @@ img {
 #informationBar {
     height: 55px;
 }
+
+.gallery-item {
+    /*width: 600px;
+    height: 400px;*/
+    width: 30%;
+    height: auto;
+    margin: 1.5%;
+    float: left;
+}
