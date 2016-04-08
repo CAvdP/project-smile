@@ -42,23 +42,35 @@
                 </div>
 
                 <div class="colorBox">
-                    <div class="palette-case">
+                    <div id="palette-box" class="palette-case">
+                        <div id="colortitle">Kies een kleur</div>
                         <div class="palette-box">
                             <div class="palette white"></div>
                         </div>
                         <div class="palette-box">
-                            <div class="palette red"></div>
+                            <div class="palette pink"></div>
                         </div>
                         <div class="palette-box">
-                            <div class="palette blue"></div>
+                            <div class="palette aqua"></div>
                         </div>
                         <div class="palette-box">
                             <div class="palette green"></div>
                         </div>
                         <div class="palette-box">
+                            <div class="palette purple"></div>
+                        </div>
+                        <div class="palette-box">
+                            <div class="palette red"></div>
+                        </div>
+                        <div class="palette-box">
                             <div class="palette black"></div>
                         </div>
+                        <div class="palette-box">
+                            <div class="palette blue"></div>
+                        </div>
+                        <img id="pencil" src="http://ukiyocon.com/images/projectsmile/pencil.png">
                         <div style="clear:both"></div>
+
                     </div>
                 </div>
             </div>
@@ -69,13 +81,13 @@
 
         <!--</div>-->
         <div id="icons">
-            <button type="button" id="startButton" class="button" onclick="startVideo();"><i class="material-icons">play_arrow</i><br>Start
+            <button type="button" id="startButton" class="button" onclick="startVideo();"><img src="http://ukiyocon.com/images/projectsmile/start.png"><br>
             </button>
-            <button type="button" id="photoButton" class="button" onclick="takePhoto();stopUpdateData();"><i class="material-icons">photo_camera</i><br>Foto
+            <button type="button" id="photoButton" class="button" onclick="takePhoto();stopUpdateData();"><img src="http://ukiyocon.com/images/projectsmile/camera.png"><br>
             </button>
-            <button type="button" id="undoButton" class="button" onclick="newCanvas();"><i class="material-icons">undo</i><br>Overnieuw
+            <button type="button" id="undoButton" class="button" onclick="newCanvas();"><img src="http://ukiyocon.com/images/projectsmile/new.png"><br>
             </button>
-            <button type="button" id="uploadButton" class="button" onclick="saveSketch();"><i class="material-icons">file_upload</i><br>Opslaan
+            <button type="button" id="uploadButton" class="button" onclick="saveSketch();"><img src="http://ukiyocon.com/images/projectsmile/save.png"><br>
             </button>
             <!-- <a id="new" class="navbtn">New</a> -->
         </div>

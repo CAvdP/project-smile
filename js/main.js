@@ -73,7 +73,10 @@ vid.addEventListener('canplay', enableStart, false);
 var ctrack = new clm.tracker({useWebGL: true});
 ctrack.init(pModel);
 
-function startVideo() {
+function startVideo()
+{
+    document.getElementById("photoButton").style.visibility = "visible";
+    document.getElementById("startButton").style.visibility = "hidden";
     // start video
     vid.play();
     // start tracking
@@ -169,6 +172,11 @@ var detectedEmotion;
 
 function takePhoto() {
     // Grab elements, create settings, etc.
+    document.getElementById("photoButton").style.visibility = "hidden";
+    document.getElementById("emotion_container").style.visibility = "hidden";
+    document.getElementById("undoButton").style.visibility = "visible";
+    document.getElementById("palette-box").style.visibility = "visible";
+    document.getElementById("uploadButton").style.visibility = "visible";
     var canvas = document.getElementById("pictureFrame"),
         context = canvas.getContext("2d"),
         video = document.getElementById("videoel");
@@ -193,3 +201,7 @@ function takePhoto() {
             console.log('saved');
         });
 }
+
+
+
+

@@ -12,7 +12,7 @@ $(document).ready(function () {
 
     // reset palette selection (css) and select the clicked color for canvas strokeStyle
     $(".palette").click(function () {
-        $(".palette").css("border-color", "#777");
+        $(".palette").css("border-color", "white");
         $(".palette").css("border-style", "solid");
         $(this).css("border-color", "#fff");
         $(this).css("border-style", "dashed");
