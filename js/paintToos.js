@@ -1,6 +1,3 @@
-/**
- * Created by Aranity on 05/04/2016.
- */
 var ctx, color = "#000";
 
 $(document).ready(function () {
@@ -45,7 +42,7 @@ function newCanvas() {
     $("#canvas").drawMouse();
 }
 
-// prototype to	start drawing on touch using canvas moveTo and lineTo
+// prototype to start drawing on touch using canvas moveTo and lineTo
 $.fn.drawTouch = function () {
     var start = function (e) {
         e = e.originalEvent;
@@ -66,7 +63,7 @@ $.fn.drawTouch = function () {
     $(this).on("touchmove", move);
 };
 
-// prototype to	start drawing on pointer(microsoft ie) using canvas moveTo and lineTo
+// prototype to start drawing on pointer(microsoft ie) using canvas moveTo and lineTo
 $.fn.drawPointer = function () {
     var start = function (e) {
         e = e.originalEvent;
@@ -87,7 +84,7 @@ $.fn.drawPointer = function () {
     $(this).on("MSPointerMove", move);
 };
 
-// prototype to	start drawing on mouse using canvas moveTo and lineTo
+// prototype to start drawing on mouse using canvas moveTo and lineTo
 $.fn.drawMouse = function () {
     var clicked = 0;
     var start = function (e) {
@@ -123,9 +120,8 @@ function saveSketch() {
         type: "POST",
         url: "php/saveSketch.php",
         data: {
-            canvasBase64: dataURL
+            canvasBase64: dataURL,
+            emotion: detectedEmotion
         }
-    }).done(function (o) {
-        document.location.reload();
     });
-};
+}

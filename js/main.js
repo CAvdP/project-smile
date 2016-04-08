@@ -1,7 +1,3 @@
-/**
- * Created by Aranity on 15/03/2016.
- */
-
 // getUserMedia only works over https in Chrome 47+, so we redirect to https. Also notify user if running from file.
 if (window.location.protocol == "file:") {
     alert("You seem to be running this example directly from a file. Note that these examples only work when served from a server or localhost due to canvas cross-domain restrictions.");
@@ -22,10 +18,10 @@ _gaq.push(['_trackPageview']);
     s.parentNode.insertBefore(ga, s);
 })();
 
-
 var vid = document.getElementById('videoel');
 var overlay = document.getElementById('overlay');
 var overlayCC = overlay.getContext('2d');
+
 
 /********** check and set up video/webcam **********/
 
@@ -68,6 +64,7 @@ if (navigator.getUserMedia) {
 
 vid.addEventListener('canplay', enableStart, false);
 
+
 /*********** setup of emotion detection *************/
 
 var ctrack = new clm.tracker({useWebGL: true});
@@ -107,6 +104,7 @@ function drawLoop() {
 var ec = new emotionClassifier();
 ec.init(emotionModel);
 var emotionData = ec.getBlank();
+
 
 /************ d3 code for barchart *****************/
 
@@ -148,24 +146,9 @@ svg.selectAll("text.yAxis").data(emotionData).enter().append("svg:text").attr("x
     return datum.emotion;
 }).attr("transform", "translate(0, 18)").attr("class", "yAxis");
 
-///******** stats ********/
-//
-//stats = new Stats();
-//stats.domElement.style.position = 'absolute';
-//stats.domElement.style.top = '0px';
-//document.getElementById('container').appendChild(stats.domElement);
-//
-//// update stats on every iteration
-//document.addEventListener('clmtrackrIteration', function () {
-//    stats.update();
-//}, false);
 
+// Determine detected emotion
 var detectedEmotion;
-
-// window.addEventListener("DOMContentLoaded", function () {
-//
-//
-// }, false);
 
 function takePhoto() {
     // Grab elements, create settings, etc.
@@ -174,22 +157,20 @@ function takePhoto() {
         video = document.getElementById("videoel");
 
     // Trigger photo take
-        context.drawImage(video, 0, 0, 600, 450);
-        detectedEmotion = detectEmotion(emotionData);
-        console.log("Detected emotion: " + detectedEmotion);
+    context.drawImage(video, 0, 0, 600, 450);
+    detectedEmotion = detectEmotion(emotionData);
+    console.log("Detected emotion: " + detectedEmotion);
 
-        // Convert snapshot to base64 string
-        var canvas = document.getElementById("pictureFrame");
-        var dataURL = canvas.toDataURL("image/png");
-        
-        // AJAX Call to send base64 string to upload php file for processing
-        $.ajax({
-            type: "POST",
-            url: "php/savePhoto.php",
-            data: {
-                imgBase64: dataURL
-            }
-        }).done(function (o) {
-            console.log('saved');
-        });
+    // Convert snapshot to base64 string
+    var canvas = document.getElementById("pictureFrame");
+    var dataURL = canvas.toDataURL("image/png");
+
+    // AJAX Call to send base64 string to upload php file for processing
+    $.ajax({
+        type: "POST",
+        url: "php/savePhoto.php",
+        data: {
+            imgBase64: dataURL
+        }
+    });
 }

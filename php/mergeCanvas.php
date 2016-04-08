@@ -10,18 +10,54 @@ imagecopy($bottom_image, $top_image, 0, 0, 0, 0, 600, 450); // copy top_image on
 imagepng($bottom_image, '../uploads/merged_image.png'); // save created image as new image
 
 
-if(!isset($result)){
-	$url = 'https://api.cloudinary.com/v1_1/dzczkimrn/image/upload/';
-	$data = array('tags' => 'project_smile_photos', 'file' => 'https://www.bandy.nl/project-smile/uploads/merged_image.png', 'upload_preset' => 'dmcgpjjg');
+if (!isset($postresult)) {
+	$posturl = 'https://api.cloudinary.com/v1_1/dzczkimrn/image/upload/';
+	$postdata = array('tags' => 'project_smile_photos', 'file' => 'https://www.bandy.nl/project-smile/uploads/merged_image.png', 'upload_preset' => 'dmcgpjjg');
 
 	// use key 'http' even if you send the request to https://...
-	$options = array(
-	    'http' => array(
-	        'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-	        'method'  => 'POST',
-	        'content' => http_build_query($data)
-	    )
+	$postoptions = array(
+			'http' => array(
+					'header' => "Content-type: application/x-www-form-urlencoded\r\n",
+					'method' => 'POST',
+					'content' => http_build_query($postdata)
+			)
 	);
-	$context  = stream_context_create($options);
-	$result = file_get_contents($url, false, $context);
+	$postcontext = stream_context_create($postoptions);
+	$postresult = file_get_contents($posturl, false, $postcontext);
+}
+
+
+//pull from cloudinary
+//take last image
+//link image to detected emotion
+//push to database
+
+if (!isset($imgUrl)) {
+	$geturl = 'http://res.cloudinary.com/dzczkimrn/image/list/project_smile_photos.json';
+	$getdata = array('tags' => 'project_smile_photos');
+
+// use key 'http' even if you send the request to https://...
+	$getoptions = array(
+			'http' => array(
+					'header' => "Content-type: application/x-www-form-urlencoded\r\n",
+					'method' => 'GET',
+					'content' => http_build_query($getdata)
+			)
+	);
+	$getcontext = stream_context_create($getoptions);
+	$getresult = file_get_contents($geturl, false, $getcontext);
+
+	$imageobject = json_decode($getresult);
+
+	$id = $imageobject->resources[0]->public_id;
+	$version = $imageobject->resources[0]->version;
+
+	$imgUrl = "http://res.cloudinary.com/dzczkimrn/image/upload/v" . $version . "/" . $id . ".png";
+	$emotion = $_POST['emotion'];
+
+	require_once "database.php";
+	$sql = "INSERT INTO fotodata (link, emotion) VALUES ('$imgUrl', '$emotion');";
+	echo $sql;
+	$runquery = mysqli_query($db, $sql);
+	mysqli_close($db);
 }
