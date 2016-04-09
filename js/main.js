@@ -70,8 +70,7 @@ vid.addEventListener('canplay', enableStart, false);
 var ctrack = new clm.tracker({useWebGL: true});
 ctrack.init(pModel);
 
-function startVideo()
-{
+function startVideo() {
     document.getElementById("photoButton").style.visibility = "visible";
     document.getElementById("startButton").style.visibility = "hidden";
     // start video
@@ -157,7 +156,7 @@ function takePhoto() {
     // Grab elements, create settings, etc.
     document.getElementById("photoButton").style.visibility = "hidden";
     document.getElementById("emotion_container").style.visibility = "hidden";
-    document.getElementById("undoButton").style.visibility = "visible";
+    document.getElementById("undoButton").style.visibility = "visible"; 
     document.getElementById("palette-box").style.visibility = "visible";
     document.getElementById("uploadButton").style.visibility = "visible";
     var canvas = document.getElementById("pictureFrame"),
@@ -165,31 +164,6 @@ function takePhoto() {
         video = document.getElementById("videoel");
 
     // Trigger photo take
-<<<<<<< HEAD
-        context.drawImage(video, 0, 0, 600, 450);
-        detectedEmotion = detectEmotion(emotionData);
-        console.log("Detected emotion: " + detectedEmotion);
-
-        // Convert snapshot to base64 string
-        var canvas = document.getElementById("pictureFrame");
-        var dataURL = canvas.toDataURL("image/png");
-        
-        // AJAX Call to send base64 string to upload php file for processing
-        $.ajax({
-            type: "POST",
-            url: "php/savePhoto.php",
-            data: {
-                imgBase64: dataURL
-            }
-        }).done(function (o) {
-            console.log('saved');
-        });
-}
-
-
-
-
-=======
     context.drawImage(video, 0, 0, 600, 450);
     detectedEmotion = detectEmotion(emotionData);
     console.log("Detected emotion: " + detectedEmotion);
@@ -205,6 +179,7 @@ function takePhoto() {
         data: {
             imgBase64: dataURL
         }
+    }).done(function (o) {
+        console.log('saved');
     });
 }
->>>>>>> 7fe140e40ab7a80c5e6cdc22161841b5410884f8

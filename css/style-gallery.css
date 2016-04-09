@@ -10,8 +10,8 @@ body {
     background-color: #005108;
     background: url("http://worldartsme.com/images/landscape-clipart-1.jpg");
     background-repeat: no-repeat;
-    background-size: 101%;
-
+    background-size: 125%;
+    overflow: hidden;
 }
 
 nav {
@@ -22,9 +22,11 @@ nav {
     margin: 5%;
     width: 90%;
     /*height: 80%;*/
-    position: fixed;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
     border-radius: 15px;
+    height: 800px;
+    overflow: auto;
+    padding-bottom: 20px;
 }
 
 .row {
@@ -51,8 +53,8 @@ img {
 }
 
 .gallery-item {
-    /*width: 600px;
-    height: 400px;*/
+/*width: 600px;
+height: 400px;*/
     width: 30%;
     height: auto;
     margin: 1.5%;
